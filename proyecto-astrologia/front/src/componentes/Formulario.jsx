@@ -1,48 +1,55 @@
 
+import React, {useState} from 'react';
+import axios from 'axios';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 
 
 
-function Formulario() {
+const Formulario=()=> {
+    const URL = 'http://localhost:3001/crear';
+
+    const [inputs, setInputs] =useState({
+        nombre:"",
+        apellido:"",
+        motivo:"",
+        email:"",
+    });
+
+        const handleChange = (e) => {
+            setInputs({
+                ...inputs,
+                [e.target.name]: e.target.value
+            })
+        };
+
+        const handleClick = async () =>{
+            await axios.post(URL, inputs)
+            setInputs({
+                nombre:"",
+                apellido:"",
+                motivo:"",
+                email:""
+            })
+        }
+        
     return ( 
-
-        <>
-            <Form className="containerForm">
-            <Form.Group className="mb-3" controlId="formBasicPassword">
-                <Form.Label>Nombre</Form.Label>
-                <Form.Control type="string" placeholder="ej: Susana" />
-            </Form.Group>
-            <Form.Group className="mb-3" controlId="formBasicPassword">
-                <Form.Label>Apellido</Form.Label>
-                <Form.Control type="string" placeholder="Ej: González" />
-            </Form.Group>
-            <Form.Group className="mb-3" controlId="formBasicPassword">
-                <Form.Label>Contanos un poco más</Form.Label>
-                <Form.Control type="string" placeholder="Tu motivo de consulta" className ="placeMotivo" />
-            </Form.Group>
-            <Form.Group className="mb-5" controlId="formBasicEmail">
-                <Form.Label>Email</Form.Label>
-                <Form.Control type="email" placeholder="Tu email para comunicarnos" />
-                <Form.Text className="text-muted">
-                We'll never share your email with anyone else.
-                </Form.Text>
-            </Form.Group>
-            <Form.Group className="mb-3" controlId="formBasicCheckbox">
-                <Form.Check type="checkbox" label="Listos?" />
-            </Form.Group>
-            <Button variant="success" type="Enviar" className ="botonFormulario">
-                Enviar
-            </Button>
-            </Form>
-
-
-
-        </>
-
-
+                <div className="d-flex flex-column align-items-center">
+                {Object.keys(inputs).map((key, index) => (
+                    <Form.Group className="pt-3" key={index} style={{ maxWidth: "200px" }}>
+                    <Form.Label id="form">
+                        {key === "email" ? key.toUpperCase() : key[0].toUpperCase() + key.slice(1)}</Form.Label>
+                    <Form.Control
+                        name={key}
+                        value={inputs[key]}
+                        onChange={handleChange}
+                    />
+                    </Form.Group>
+                ))}
+                    <Button className="mt-3" onClick={handleClick}>Enviar</Button>
+                </div>
             );
-}
+            };
 
 
 export default Formulario;

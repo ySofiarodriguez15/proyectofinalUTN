@@ -14,10 +14,10 @@ function Navegacion() {
             <Navbar.Brand href="/" className="me-auto">Home</Navbar.Brand>
             
                 <Nav className="me-auto">
-                    <Nav.Link href="About">Sobre nosotros</Nav.Link>
-                    <Nav.Link href="Servicios">Servicios</Nav.Link>
-                    <Nav.Link href="Donde">Donde nos encontramos</Nav.Link>
-                    <Nav.Link href="Formulario">Consultas!</Nav.Link>
+                    <Nav.Link href="About" className='navLink'>Sobre nosotros</Nav.Link>
+                    <Nav.Link href="Servicios" className='navLink'>Servicios</Nav.Link>
+                    <Nav.Link href="Donde" className='navLink'>Donde nos encontramos</Nav.Link>
+                    <Nav.Link href="Formulario" className='navLink'>Consultas!</Nav.Link>
                 </Nav>
             
             </Container>

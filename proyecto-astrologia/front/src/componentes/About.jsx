@@ -10,20 +10,18 @@ function About() {
     return ( 
 
         <main>
-                <h2 className="h2About">Conocé nuestro staff</h2>
+                <p className="container"></p>
                 <Container className="container1">
                 <Row>
                     <Col>
-                    <Card style={{ width: '43.5rem' }}>
-                    <Card.Img variant="top" src="holder.js/100px180" />
-                    <Card.Body>
-                        <Card.Title>Card Title</Card.Title>
-                        <Card.Text>
-                        Some quick example text to build on the card title and make up the
-                        bulk of the card's content.
-                        </Card.Text>
-                        <Button variant="primary">Go somewhere</Button>
+                    <Card style={{ width: '51rem' }}>
+                    <div className="divStaff">
+                    <Card.Body className="cardBody1">
+                        <div className="h2About">
+                        <h2 >CONOCE NUESTRO STAFF</h2>       
+                        </div>      
                     </Card.Body>
+                    </div>
                     </Card>
                     
                     
@@ -38,7 +36,7 @@ function About() {
                             Some quick example text to build on the card title and make up the
                             bulk of the card's content.
                             </Card.Text>
-                            <Button variant="primary">Go somewhere</Button>
+                            
                         </Card.Body>
                         </Card>
                     
@@ -55,7 +53,7 @@ function About() {
                             Some quick example text to build on the card title and make up the
                             bulk of the card's content.
                             </Card.Text>
-                            <Button variant="primary">Go somewhere</Button>
+                            
                         </Card.Body>
                         </Card>
                     
@@ -70,7 +68,7 @@ function About() {
                             Some quick example text to build on the card title and make up the
                             bulk of the card's content.
                             </Card.Text>
-                            <Button variant="primary">Go somewhere</Button>
+                            
                         </Card.Body>
                         </Card>
                     
@@ -85,7 +83,7 @@ function About() {
                             Some quick example text to build on the card title and make up the
                             bulk of the card's content.
                             </Card.Text>
-                            <Button variant="primary">Go somewhere</Button>
+                            
                         </Card.Body>
                         </Card>
                     </Col>
@@ -100,8 +98,9 @@ function About() {
 
 
                 <nav className="linkAbout">
-                    <Link to= "/" > Home </Link>
-
+                    <Button className="primary">
+                    <Link to= "/" className="botonAbout"> Home </Link>
+                    </Button>
                 </nav>
 
 
